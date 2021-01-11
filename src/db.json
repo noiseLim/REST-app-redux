@@ -10,7 +10,7 @@
 		{
 			"title": "Pizza Margherita",
 			"price": 10,
-			"url": "http://www.academiabarilla.com/anteprima_pizzamargherita_xhm1p-2_1200.jpg?h=faa3bae42d7180a508c490395249247ded3f362c",
+			"url": "https://www.soniaperonaci.it/wp-content/uploads/2015/11/Pizza-margherita-4.jpg",
 			"category": "pizza",
 			"id": 2
 		},
@@ -34,6 +34,6 @@
 			"url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
 			"category": "meat",
 			"id": 5
-		}
+        }
 	]
 }
