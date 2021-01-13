@@ -23,7 +23,7 @@
     }
     &__category, &__price {
         font-size: 18px;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 10px;
         letter-spacing: 1px;
         span {
@@ -40,4 +40,9 @@
         font-size: 16px;
         cursor: pointer;
     }
+}
+
+a {
+    text-decoration: none;
+    color: #171717;
 }

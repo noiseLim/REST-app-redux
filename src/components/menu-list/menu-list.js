@@ -54,7 +54,7 @@ const mapDispatchToProps = {
     menuLoaded,
     menuRequested,
     menuError,
-    addedToCart
+    addedToCart,
 }
 
 const View = ({items}) => {
