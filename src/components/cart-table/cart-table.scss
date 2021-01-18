@@ -18,7 +18,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 40px;
-        border: 1px solid rgba(256,256,256, .2);
+        // border: 1px solid rgba(256,256,256, .2);
         background-color: rgba(0,0,0,.7);
         box-shadow: 0 0 20px rgba(256,256,256, .1);
         &-title, &-price  {
@@ -45,6 +45,42 @@
         border-radius: 100%;
         border: 1px solid #fff;
         cursor: pointer;
+    }
+    &__block {
+        display: flex;
+        top: 50px;
+        right: 20px;
+        margin: 20px;
+        &-plus {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            // top: 50px;
+            // right: 20px;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 100%;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }        
+        &-minus {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            // top: 50px;
+            // right: 160px;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 100%;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+        &-qtty {
+            width: 100px;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+        }
     }
     .order{
         display: block;
