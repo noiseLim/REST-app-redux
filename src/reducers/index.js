@@ -75,7 +75,54 @@ const reducer = (state=initialState, action) => {
                 ],
                 totalPrice: state.totalPrice - price
             }
+        case 'ITEM_PLUS_TO_CART':
+            const idToPlusCount = action.payload;
+            const itemToPlusCount = state.items.find(item => item.id === idToPlusCount);
+            const newCountToPlus = {
+                ...itemToPlusCount,
+                qtty: ++itemToPlusCount.qtty
+            }
+            return {
+                ...state,
+                items: [
+                    ...state.items,
+                ],
+                newCountToPlus,
+                totalPrice: state.totalPrice + itemToPlusCount['price']
+            }
+        case 'ITEM_MINUS_TO_CART':
+            const idToMinusCount = action.payload;
+            const itemToMinusCount = state.items.find(item => item.id === idToMinusCount);
 
+            if(itemToMinusCount.qtty > 1) {
+                const newCountToMinus = {
+                    ...itemToMinusCount,
+                    qtty: --itemToMinusCount.qtty
+                }
+                console.log(`Больше нуля ${newCountToMinus.qtty}`);
+                return {
+                    ...state,
+                    items: [
+                        ...state.items,
+                    ],
+                    newCountToMinus,
+                    totalPrice: state.totalPrice - itemToMinusCount['price']
+                }
+            }
+            const newCountToMinus = {
+                ...itemToMinusCount,
+                qtty: itemToMinusCount.qtty
+            }
+            console.log(`Меньше нуля ${newCountToMinus.qtty}`);
+            return {
+                ...state,
+                items: [
+                    ...state.items,
+                ],
+                newCountToMinus,
+                totalPrice: state.totalPrice
+            }
+            
         default:
             return state;
     }
