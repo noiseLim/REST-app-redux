@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteFromCart, plusToCart, minusToCart} from '../../actions';
+import {deleteFromCart, plusToCart, minusToCart, clearOrderAfterBuy} from '../../actions';
 import WithRestoService from '../hoc';
 
 import './cart-table.scss';
 
-const CartTable = ({items, deleteFromCart, RestoService, plusToCart, minusToCart}) => {
+const CartTable = ({items, deleteFromCart, RestoService, plusToCart, minusToCart, clearOrderAfterBuy}) => {
 
     if (items.length === 0) {
         return (<div className="cart__title">Your shopping cart is empty</div>)
@@ -35,7 +35,7 @@ const CartTable = ({items, deleteFromCart, RestoService, plusToCart, minusToCart
                 }
                 
             </div>
-            <button onClick={() => {RestoService.setOrder(generateOrder(items))}} className="order">Place an order</button>
+            <button onClick={() => {clearOrderAfterBuy(RestoService.setOrder(generateOrder(items)))}} className="order">Place an order</button>
         </>
     );
 };
@@ -59,7 +59,8 @@ const mapStateToProps = ({items}) => {
 const mapDispatchToProps = {
     deleteFromCart,
     plusToCart,
-    minusToCart
+    minusToCart,
+    clearOrderAfterBuy
 }
 
 export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(CartTable));

@@ -45,6 +45,12 @@ const minusToCart = (id) => {
     };
 }
 
+const clearOrderAfterBuy = () => {
+    return {
+        type: 'ITEM_CLEAR_ORDER_AFTER_BUY',
+    }
+}
+
 export {
     menuLoaded,
     menuRequested,
@@ -52,5 +58,6 @@ export {
     addedToCart,
     deleteFromCart,
     plusToCart,
-    minusToCart
+    minusToCart,
+    clearOrderAfterBuy
 };

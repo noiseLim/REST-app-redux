@@ -34,7 +34,7 @@ const reducer = (state=initialState, action) => {
                 const itemInState = state.items.find(item => item.id === id);
                 const newItem = {
                     ...itemInState,
-                    qtty: ++itemInState.qtty
+                    qtty: itemInState.qtty
                 }
                 return {
                     ...state,
@@ -43,7 +43,7 @@ const reducer = (state=initialState, action) => {
                         newItem,
                         ...state.items.slice(itemInd + 1)
                     ],
-                    totalPrice: state.totalPrice + newItem.price
+                    totalPrice: state.totalPrice
                 }
             }
 
@@ -75,6 +75,12 @@ const reducer = (state=initialState, action) => {
                 ],
                 totalPrice: state.totalPrice - price
             }
+        case 'ITEM_CLEAR_ORDER_AFTER_BUY':
+            return {
+                ...state,
+                items: [],
+                totalPrice: 0
+            }
         case 'ITEM_PLUS_TO_CART':
             const idToPlusCount = action.payload;
             const itemToPlusCount = state.items.find(item => item.id === idToPlusCount);
@@ -99,7 +105,6 @@ const reducer = (state=initialState, action) => {
                     ...itemToMinusCount,
                     qtty: --itemToMinusCount.qtty
                 }
-                console.log(`Больше нуля ${newCountToMinus.qtty}`);
                 return {
                     ...state,
                     items: [
@@ -113,7 +118,6 @@ const reducer = (state=initialState, action) => {
                 ...itemToMinusCount,
                 qtty: itemToMinusCount.qtty
             }
-            console.log(`Меньше нуля ${newCountToMinus.qtty}`);
             return {
                 ...state,
                 items: [

@@ -40,6 +40,7 @@ export default class RestoService {
             },
             body: JSON.stringify(newOrder)
         });
+        console.log(response.status);
         if (!response.ok){
             throw new Error('json error'); 
         }
